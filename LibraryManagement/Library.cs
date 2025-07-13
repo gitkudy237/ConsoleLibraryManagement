@@ -10,12 +10,18 @@ namespace LibraryManagement
     {
         public List<Book> books = new List<Book>();
 
-        //methods to be created
+        /* To be implemented by Clovis le pro */
         //public void AddBook(Book book) { ... }
         //public void ViewBooks() { ... }
-        //public Book SearchBookByTitle(string title) { ... }
-        //public void BorrowBook(int id) { ... }
-        //public void ReturnBook(int id) { ... }
+        //public void SearchBookByTitle(string title) { ... }
+        //public void SearchBookById(string id) { .. }
+
+        /* To be implemented by Kudy le dev */
+        public void RemoveBook(int id) { .. }
+        public void BorrowBook(int id)
+        { ... }
+        public void ReturnBook(int id) { ... }
+        public void DisplayMenu() { .. }
 
     }
 }
