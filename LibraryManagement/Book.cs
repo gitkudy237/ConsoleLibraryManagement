@@ -15,8 +15,9 @@ public class Book
     public int NumberOfPages { get; }
     public bool IsAvailable { get; set; }
 
-    public Book(string title, string author, string isbn, int numberOfPages)
+    public Book(int id, string title, string author, string isbn, int numberOfPages)
     {
+        Id = id;
         Title = title;
         Author = author;
         Isbn = isbn;
