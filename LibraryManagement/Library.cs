@@ -39,7 +39,7 @@ namespace LibraryManagement
             int numberOfPages = Convert.ToInt32(Console.ReadLine());
             var book = new Book(id, title, author, isbn, numberOfPages);
             books.Add(book);
-            Console.WriteLine("Book Successfully added.");
+            Console.WriteLine("Book Successfully added!");
         }
 
         public void ViewBooks()
