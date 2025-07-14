@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,12 +53,26 @@ namespace LibraryManagement
 
         public void SearchBookById(int id)
         {
-            var book = books.FirstOrDefault(x => x.Id == id);
+            var book = books.FirstOrDefault(b => b.Id == id);
             if(book  != null)
                 Console.WriteLine($"Title {book.Title}\nAuthor: {book.Author}\nISBN: {book.Isbn}\nNumber of page: {book.NumberOfPages}");
             else
                 Console.WriteLine("Book is not found");
 
+        }
+        public void SearchBookByTitle(string title)
+        {
+            var matchingBooks = books.Where(b => b.Title.ToLower().Contains(title.ToLower())).ToList();
+           if(matchingBooks.Any())
+            {
+                Console.WriteLine($"Found {matchingBooks.Count}");
+                foreach(var book in matchingBooks)
+                {
+                    Console.WriteLine($"Title {book.Title}\nAuthor: {book.Author}\nISBN: {book.Isbn}\nNumber of page: {book.NumberOfPages}");
+                }
+            }
+           else
+                Console.WriteLine("No book was found in this search!😒");
         }
 
         /* To be implemented by Kudy le dev */
