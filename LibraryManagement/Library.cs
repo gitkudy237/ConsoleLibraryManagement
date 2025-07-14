@@ -10,9 +10,9 @@ namespace LibraryManagement
     {
         public List<Book> books = new()
         {
-            new Book("title1", "author1", "1239-27892-297", 150),
-            new Book("title2", "author2", "1452-28992-297", 3000),
-            new Book("title3", "author3", "1239-27892-297", 456),
+            new Book(1,"title1", "author1", "1239-27892-297", 150),
+            new Book(2,"title2", "author2", "1452-28992-297", 3000),
+            new Book(3,"title3", "author3", "1239-27892-297", 456),
         };
 
         /* To be implemented by Clovis le pro */
@@ -26,19 +26,39 @@ namespace LibraryManagement
 
         public void AddBook()
         {
-            Console.WriteLine("Enter book Title: ");
+            Console.WriteLine("Enter book Id: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter book Title: ");
             string title = Console.ReadLine();
-            Console.WriteLine("Enter book author: ");
+            Console.Write("Enter book author: ");
             string author = Console.ReadLine();
-            Console.WriteLine("Enter the book ISBN: ");
+            Console.Write("Enter the book ISBN: ");
             string isbn = Console.ReadLine();
-            Console.WriteLine("Ente the number of pages: ");
+            Console.Write("Ente the number of pages: ");
             int numberOfPages = Convert.ToInt32(Console.ReadLine());
-            var book = new Book(title, author, isbn, numberOfPages);
-            book.Id += 1;
+            var book = new Book(id, title, author, isbn, numberOfPages);
             books.Add(book);
+            Console.WriteLine("Book Successfully added.");
         }
 
+        public void ViewBooks()
+        {
+            foreach (var book in books)
+            {
+                Console.WriteLine($"Title {book.Title}\nAuthor: {book.Author}\nISBN: {book.Isbn}\nNumber of page: {book.NumberOfPages}");
+                Console.WriteLine("\n\n");
+            }
+        }
+
+        public void SearchBookById(int id)
+        {
+            var book = books.FirstOrDefault(x => x.Id == id);
+            if(book  != null)
+                Console.WriteLine($"Title {book.Title}\nAuthor: {book.Author}\nISBN: {book.Isbn}\nNumber of page: {book.NumberOfPages}");
+            else
+                Console.WriteLine("Book is not found");
+
+        }
 
         /* To be implemented by Kudy le dev */
         
